@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BlogDto {
-//	private String user_id;
 	public int user_id;
 	private String username;
 	private String email;

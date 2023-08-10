@@ -25,15 +25,15 @@
 			</c:if>
 <!-- 		                     <hr>		       -->
 		                    
-							  <div class="content-footer"></div>
+		<div class="content-footer"></div>
 							
-		                  <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 50px;">
-		                     <div class="form-floating" style="width:90%">
-								  <textarea class="form-control" placeholder="Leave a comment here" id="ContentComment" style="height: 100px"></textarea>
-								  <label for="floatingTextarea2">댓글</label>
-							</div>
-		                       <button id="comment-write" style="width: auto; background-color: gray; border:  1px solid #eee;" class="btn btn-primary" type="button">완료</button>
-		                    </div>
+        <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 50px;">
+             <div class="form-floating" style="width:90%">
+				  <textarea class="form-control" placeholder="Leave a comment here" id="ContentComment" style="height: 100px"></textarea>
+			  <label for="floatingTextarea2">댓글</label>
+			</div>
+              <button id="comment-write" style="width: auto; background-color: gray; border:  1px solid #eee;" class="btn btn-primary" type="button">완료</button>
+          </div>
 		
 		<div class="comment"></div>
 <script type="text/javascript">
@@ -54,7 +54,8 @@
   }
   //댓글
   var board_id =${board.board_id}
-  var user_id=${board.user_id}
+//   var user_id=${board.user_id}
+  var user_id=${user_id}
    
   
 </script>

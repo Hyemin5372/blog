@@ -35,11 +35,6 @@ public class BlogCommentController {
 		log.info("@# WriteComment");
 		BlogDto user = new Method().userInfo(session);
 		BlogBoardDto boardDto = new BlogBoardDto();
-//		  if (user != null) {
-//			  if (params.get("user_id") != null) {
-//		        // 로그인된 사용자 정보가 있을 경우, user_id를 BlogBoardDto에 설정
-//		        Date date = new Date();
-//		        params.put("created", String.valueOf(date));
 				model.addAttribute("board_id", params.get("board_id"));
 		        log.info("board id 넘어가니?"+ params.get("board_id"));
 		        log.info("넘어오니?");

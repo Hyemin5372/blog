@@ -25,7 +25,6 @@ public class BlogCommentServiceImple implements BlogCommentService {
 	@Autowired SqlSession sqlSession;
 	
 	@Override
-//	public void writecomment(HashMap<String, String> param) {
 		public void writecomment(HashMap<String, String> param, HttpSession session) {
 		BlogCommentDao dao = sqlSession.getMapper(BlogCommentDao.class);
         BlogBoardDto boardDto = new BlogBoardDto();
@@ -47,7 +46,6 @@ public class BlogCommentServiceImple implements BlogCommentService {
 		BlogCommentDao dao = sqlSession.getMapper(BlogCommentDao.class);
 		
 		 
-		 // ArrayList<BlogCommentDto> result = dao.contentViewcomment(param, session);
 		 ArrayList<BlogCommentDto> result = dao.contentViewcomment(param);
 		    log.info("Result from dao: " + result);
 		return result;
@@ -57,8 +55,6 @@ public class BlogCommentServiceImple implements BlogCommentService {
 	public void modifycomment(HashMap<String, String> param, HttpSession session) {
 		BlogCommentDao dao = sqlSession.getMapper(BlogCommentDao.class);
 		log.info("수정까지 오니?");
-//		int loginuser = Method.userInfo(session).getUser_id();
-//		ArrayList<BlogCommentDto>commentuser = dao.contentViewcomment(param);
 		dao.modifycomment(param);
 	}
 

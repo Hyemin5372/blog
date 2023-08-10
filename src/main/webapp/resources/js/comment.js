@@ -19,7 +19,6 @@ $(document).ready(function() {
                    for (var i=0; i < data.length; i++) {
                 
                       
-                      //지금 로그인한 유저와 댓글 작성자가 같냐
                       if ( user_id == data[i].user_id ) {
     
                       //그럼 row에 그 댓글에 수정/삭제를 보여줘라

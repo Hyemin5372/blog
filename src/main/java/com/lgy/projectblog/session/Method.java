@@ -25,23 +25,12 @@ public class Method {
 //	문자열을 암호화
 		public static String encodePassword(String password) {	
 			
-			// 문자열을 암호화하기 위해 필요한 확장 기능(디펜던시) 가져옴,  이름은 passwordEncoder 이라고 작명 
 			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 			
-			//String str1 = "";
-			//String str2 = passwordEncoder.encode( str1 );
 			return passwordEncoder.encode( password );
 			
 			
 		}	
-//		public String getDate() {
-//			LocalDateTime now = LocalDateTime.now();
-//			Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
-//			SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 작성", new Locale("ko", "KR"));
-//			String formattedDate = sdf.format(date);
-//			
-//			return formattedDate;
-//		}
 //		
 
 }

@@ -31,15 +31,7 @@ public class BlogBoardServiceImpl implements BlogBoardService {
 
 	@Override
 	public void write(HashMap<String, String> param) {
-//		public void write(HashMap<String, String> param,BlogBoardDto boardDto) {
 		BlogBoardDao dao =sqlSession.getMapper(BlogBoardDao.class);
-//		Date currentDate = new Date();
-//
-//        // 데이터베이스에 저장할 날짜 형식으로 변환
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        String formattedDate = sdf.format(currentDate);
-////		param.put("created", Method.getDate() );
-//		param.put("created", formattedDate );
 //		 
 		dao.write(param);
 	}
@@ -51,8 +43,6 @@ public class BlogBoardServiceImpl implements BlogBoardService {
 		BlogBoardDao dao = sqlSession.getMapper(BlogBoardDao.class);
 		log.info("BlogBoardServiceImpl ===> sqlSession 바로 아래");
 		
-//		log.info("dao.contentView(param,session) ===> " + dao.contentView(param, session));
-//		log.info("dao.contentView(param,session) ===> " + dao.contentView(param));
 		
 		
 		BlogDto user = new Method().userInfo(session);
@@ -90,7 +80,6 @@ public class BlogBoardServiceImpl implements BlogBoardService {
 		
 		
 		BlogBoardDao dao = sqlSession.getMapper(BlogBoardDao.class);
-//		ArrayList<BDto> list = dao.list();
 		
 		log.info("@# BlogBoardServiceImpl.list(Criteria cri) end");
 		

@@ -11,8 +11,6 @@ import com.lgy.projectblog.dto.BlogCommentDto;
 
 public interface BlogCommentDao {
 	public void writecomment (@RequestParam HashMap<String, String> param);
-//	public void writecomment (@RequestParam HashMap<String, String> param, HttpSession session);
-//	public ArrayList<BlogCommentDto> contentViewcomment(@RequestParam HashMap<String, String> param);
 	public ArrayList<BlogCommentDto> contentViewcomment(@RequestParam HashMap<String, String> param, HttpSession session);
 	public ArrayList<BlogCommentDto> contentViewcomment(@RequestParam HashMap<String, String> param);
 	public void modifycomment(@RequestParam HashMap<String, String> param);

@@ -6,8 +6,6 @@
 
     <select id="list" parameterType="hashmap" resultType="com.lgy.projectblog.dto.BlogBoardDto">
        select * from board order by board_id
-<!--        select board_id, title, content,user_id from board -->
-<!--        select board_id, title, content,user_id,created from board -->
     </select>
      <select id="listWithPaging" resultType="com.lgy.projectblog.dto.BlogBoardDto">
 <!--        <![CDATA[]]> : MYBATIS에서 특수문자 인식처리 -->
@@ -23,19 +21,12 @@
     </select>
     
    <insert id="write" parameterType="hashmap">
-<!--    INSERT INTO board (board_id, title, content, user_id) -->
-<!--     VALUES (board_SEQ.NEXTVAL, #{title}, #{content}, #{user_id}) -->
-<!--     VALUES (board_SEQ.NEXTVAL, #{title}, #{content}, 0) -->
-<!--      INSERT INTO board (USER_ID, TITLE, CONTENT, BOARD_ID) -->
-<!--     VALUES (users_SEQ.NEXTVAL, #{title}, #{content}, board_SEQ.NEXTVAL) -->
-    
       INSERT INTO board (board_id, title, content, user_id)
         VALUES (board_SEQ.NEXTVAL, #{title}, #{content}, #{user_id})
     
 </insert>
 <select id="contentView" parameterType="hashmap" resultType="com.lgy.projectblog.dto.BlogBoardDto">
          select board_id, title, content, user_id from board where board_id=#{board_id}
-<!--          select board_id, title, content, user_id,created  from board where board_id=#{board_id} -->
     </select>
  
 <update id="modifyboard" parameterType="hashmap">

@@ -29,23 +29,16 @@ import lombok.extern.slf4j.Slf4j;
 public class BlogBoardController {
 
 	@Autowired private BlogBoardService service;
-//	@GetMapping("/list")
-//	public String List(Model model,@RequestParam HashMap<String,String> param, HttpSession session) {
-//		log.info("@# list");
-//		ArrayList<BlogBoardDto> list = service.list(param);
-//		model.addAttribute("list", list);
-//		return "list";
-//	}
+
 //	페이징
 	@RequestMapping("/list")
 	public String boardList(Criteria cri ,@RequestParam HashMap<String,String> params, Model model) {
 		log.info("@# list");
 		log.info("@# cri ===> "+cri);
 		
-//		ArrayList<BDto> list = service.list();
-//		model.addAttribute("list", list);
+
 		model.addAttribute("list", service.list(cri));
-//		model.addAttribute("pageMaker", new PageDTO(123, cri));
+
 		model.addAttribute("pageMaker", new PageDTO(service.getCount(params), cri));
 
 		
@@ -85,13 +78,12 @@ public class BlogBoardController {
 			log.info("dto ???" + dto);
 			model.addAttribute("board", dto);
 			
+			
 			//댓글
 			model.addAttribute("user_id", user.getUser_id());
-//		model.addAttribute("board", service.contentView(param));
 			Integer userId1 = user.getUser_id();
 			Integer userId2 = dto.getUser_id();
 //
-//			boolean isCurrentUser = userId1.equals(userId2);
 			boolean isCurrentUser = userId2 == 0 || userId1.equals(userId2);
 			log.info("userid ==>"+ userId1);
 			log.info("dtoid ==>"+ userId2);
@@ -104,12 +96,7 @@ public class BlogBoardController {
 			return "redirect:login";
 		}
 	}
-//	@GetMapping("/edit")
-//	public String Edit(Model model,@RequestParam HashMap<String, String> params, HttpSession session) {
-//		log.info("@# edit");
-//		model.addAttribute("board", service.contentView(params));
-//		return "edit";
-//	}
+
 	@GetMapping("/edit")
 	public String Edit(Model model, @RequestParam HashMap<String, String> params, HttpSession session) {
 	    log.info("@# edit");
@@ -121,7 +108,6 @@ public class BlogBoardController {
 
 
 
-//	@PostMapping("/edit")
 	@PostMapping("/modifyboard")
 	public String ModifyBoard(Model model,@RequestParam HashMap<String, String> params, HttpSession session,@ModelAttribute("cri") Criteria cri ,RedirectAttributes rttr) {
 		log.info("@# modifyboard");
@@ -134,9 +120,6 @@ public class BlogBoardController {
 			return "redirect:list";
 
 	}
-	
-	
-
 	@GetMapping("/delete")
 	public String DeleteBoard(Model model,@RequestParam HashMap<String, String> params, HttpSession session) {
 		log.info("@# delete");

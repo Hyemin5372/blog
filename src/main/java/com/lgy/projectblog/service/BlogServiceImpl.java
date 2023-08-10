@@ -24,45 +24,12 @@ public class BlogServiceImpl implements BlogService{
 	public BlogDto loginYn(HashMap<String, String> param) {
 		log.info("@# BlogServiceImpl ---- loginYn");
 		BlogDao dao =sqlSession.getMapper(BlogDao.class);
-//		String pw = param.get("password");
+
 		BlogDto dto = dao.loginYn(param);
-//			
-//		if (dto == null) {	// 아이디 존재 하지 않음
-//			return null;
-//		} else {
-//			if (pw.equals(dto.getPassword())) {
-//				log.info("@# BlogServiceImpl ---- " + dto.getPassword());
-//				return dto;//둘다 맞음
-//				
-//			} else {
-//
-//				return null;
-//			}
-//		}
+
 		return dto;
 	}
-//	@Override
-//	public BlogDto loginYn(HashMap<String, String> param) {
-//		BlogDao dao = sqlSession.getMapper(BlogDao.class);
-//	    log.info("@# BlogServiceImpl ---- loginYn");
-//	    String username = param.get("username"); // HashMap에서 username을 가져옴
-//	    BlogDto dto = dao.loginYn(param); // username을 기준으로 검색
-//
-//	    if (dto == null) {
-//	        // 아이디 존재하지 않음
-//	        return null;
-//	    } else {
-//	        // 검색된 유저 정보와 입력한 비밀번호를 비교하여 처리하는 로직
-//	        // (기존 코드와 동일하게 유지)
-//	        String pw = param.get("password");
-//	        if (pw.equals(dto.getPassword())) {
-//	            log.info("@# BlogServiceImpl ---- " + dto.getPassword());
-//	            return dto;
-//	        } else {
-//	            return null;
-//	        }
-//	    }
-//	}
+
 
 
 	@Override
@@ -83,7 +50,7 @@ public class BlogServiceImpl implements BlogService{
 
 
 	@Override
-//	public void delete(HashMap<String, String> param) {
+
 		public void delete(HashMap<String, String> param, HttpSession session) {
 		log.info("@# BlogServiceImpl ---- delete");
 		BlogDao dao =sqlSession.getMapper(BlogDao.class);

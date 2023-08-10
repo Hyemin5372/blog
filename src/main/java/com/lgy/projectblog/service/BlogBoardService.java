@@ -13,7 +13,6 @@ public interface BlogBoardService {
 	public ArrayList<BlogBoardDto> list (HashMap<String, String> param);
 	public ArrayList<BlogBoardDto> list(Criteria cri);
 	public void write (HashMap<String, String> param);
-//	public void write (HashMap<String, String> param,BlogBoardDto boardDto);
 	public BlogBoardDto contentView (HashMap<String, String> param);
 	public void modifyboard( HashMap<String, String> param);
 	public void deleteboard(HashMap<String, String> param);

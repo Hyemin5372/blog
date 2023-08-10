@@ -36,19 +36,6 @@ public class BlogController {
 		log.info("@# login");
 		return "login";
 	}
-//		@RequestMapping("/login_yn")
-//		public String login_yn(@RequestParam HashMap<String, String> param,HttpSession session) {
-//			log.info("login");
-//			BlogDto dto = service.loginYn(param);
-//			
-////			service에서 가지고 온 결과=>조건문
-//			if (dto != null) {
-//				
-//				session.setAttribute("userInfo", dto);
-//				return "redirect:list";
-//			} else {
-//				return "redirect:login";
-//			}
 	@PostMapping("/login_yn")
 	public String login_yn(Model model,@RequestParam HashMap<String, String> params, HttpSession session) {
 	    log.info("login");
@@ -72,7 +59,6 @@ public class BlogController {
 	            model.addAttribute("userInfo", dto);
 	            
 	            return "redirect:list";
-//	            return "redirect:mypage";
 	        } else {
 	            // 비밀번호가 일치하지 않을 경우
 	            return "redirect:login?error=1"; // 에러 파라미터를 추가하여 로그인 페이지로 전달
@@ -83,13 +69,16 @@ public class BlogController {
 	    }
 	}
 
-
-//	}
-//		@RequestMapping("/list")
-//		public String bloglist() {
-//			
-//			return "list";
-//		}
+	// 로그아웃 처리
+	@GetMapping("/logOut")
+	public String logOut(HttpSession session) {
+		
+		log.info("logOut ===> session ");
+		//세션 삭제
+		session.invalidate();
+		
+		return "redirect:login";
+	}
 		@RequestMapping("/register")
 		public String register() {
 			return "register";
@@ -128,7 +117,6 @@ public class BlogController {
 		    // 로그인 된 세션으로 아이디 값을 추가
 		    BlogDto user = Method.userInfo(session);
 		    param.put("user_id",String.valueOf(user.getUser_id()) );
-//		    param.put("user_id", user.getUser_id());
 		    log.info( "userid 가지고 오니?"+ user.getUser_id());
 		    
 
@@ -153,8 +141,8 @@ public class BlogController {
 
 		            // 비밀번호 수정
 		            service.modify(param, session);
-
-		            return new ResponseEntity<String>("ok", HttpStatus.OK);
+		            
+		            return ResponseEntity.status(HttpStatus.OK).body("ok");
 		            
 		        } else {
 		            return new ResponseEntity<String>("비밀번호와 비밀번호 확인이 일치하지 않습니다.", HttpStatus.BAD_REQUEST);
@@ -166,7 +154,6 @@ public class BlogController {
 		// 회원 탈퇴 화면
 	    
 		@GetMapping("/deleteuser")
-//		@PostMapping("/deleteuser")
 		public String Delete(Model model,@RequestParam HashMap<String, String> params,HttpSession session) {
 		        BlogDto user = Method.userInfo(session);
 		        model.addAttribute("user", user);
@@ -175,6 +162,7 @@ public class BlogController {
 		        return "redirect:login";
 		    
 		}
+
 
 	
 }
